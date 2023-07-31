@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        try {
+            console.log('до входа в блок');
+            try {
+                console.log('до ошибки');
+                22222(); // вызываем число как функцию
+                console.log('после ошибки');
+            }
+            catch (ex) {
+                if (ex.name == 'ReferenceError') { // моё исключение?
+                    console.error('обращение к несуществующей переменной!');
+                    console.error('текст исключения: ' + ex.message);
+                }
+                else
+                    throw ex; // не моё исключение - пусть кто-то другой обработает
+            }
+            console.log('после входа в блок');
+        }
+        catch (ex) {
+            console.error('возникло исключение!');
+            console.error('тип исключения: ' + ex.name);
+            console.error('текст исключения: ' + ex.message);
+        }
+
+
+        
+    </script>
+</body>
+
+</html>
