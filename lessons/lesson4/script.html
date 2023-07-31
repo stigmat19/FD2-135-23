@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script src="script/scr1.js"></script>
+    <script src="script/scr2.js"></script>
+
+    <script>
+
+        const user1 = ['Ivan', 'Ivanov', 30];
+        const user2 = ['Petr', 'Petrov', 35];
+        const user3 = [25, 'Sidr', 'Sidorov'];
+
+        function getUserInfo(user) {
+            console.log(`name: ${user[0]}, lastname: ${user[1]}, age: ${user[2]}`);
+            console.log('=================')
+        }
+
+        // getUserInfo(user1);
+        // getUserInfo(user2);
+        // getUserInfo(user3);
+
+
+        //======================
+        // new Object()
+        const userObj1 = {
+            name: 'Ivan',
+            lastname: 'Ivanov',
+            age: 30
+        }
+        const userObj2 = {
+            age: 35,
+            lastname: 'Petrov',
+            name: 'Petr'
+        }
+
+        function getUserInfoObj(user) {
+            console.log(`name: ${user.name}, lastname: ${user.lastname}, age: ${user.age}`);
+            console.log('=================')
+        }
+        // getUserInfoObj(userObj1);
+        // getUserInfoObj(userObj2);
+
+        // for (let key in userObj1) {
+        //     console.log(`key: ${key}, value: ${userObj1[key]}`);
+        // }
+
+        // beatles
+
+        const beatles = {
+            name: 'Beatles',
+            song: {
+                year: 1965,
+                name: 'Beatles hello'
+            },
+            members: ['McCartney', 'Lennon', 'Harrison', 'Starr'],
+            albums: [
+                { name: 'Please Please Me', year: 1963 },
+                { name: 'With The Beatles', year: 1963 },
+                { name: "A Hard Day's Night", year: 1964 }
+            ]
+        };
+
+        for(let k in beatles){
+            if(typeof beatles[k] === 'string'){
+                // console.log(beatles[k])
+            } else if(beatles[k] instanceof Array){
+                for(let i = 0; i < beatles[k].length; i++){
+                    if(typeof beatles[k][i] === 'string'){
+                        // console.log(beatles[k][i])
+                    } else{
+                        showToConsole(beatles[k][i]);
+                    }
+                }
+            } else{
+                showToConsole(beatles[k]);
+            } 
+        }
+
+        function showToConsole(data){
+            // console.log(data.year);
+            // console.log(data.name);
+        }
+
+
+        // console.log({} === {})
+        const student = { name:'Иванов', prices:[ 4, 5, 4, 3 ] };
+
+        // for home work
+        const str = 'Hello'
+        [1,2,3,4].includes(2)
+        for(let i = 0; i<str.length; i++){
+            console.log(str[i])
+        }
+
+
+        const t = [1,2,3,4]
+
+        for(let i=0; i<arr.length; i++){
+            const blabla = t[i];
+            console.log(t[i]);
+            
+        }
+    </script>
+
+
+</body>
+
+</html>
