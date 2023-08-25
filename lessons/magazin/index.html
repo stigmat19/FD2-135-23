@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Document</title>
+
+    <style>
+        #app {
+            width: 592px;
+            display: flex;
+            margin: 0 auto;
+            justify-content: space-between;
+            flex-flow: wrap;
+        }
+        .card{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <script>
+        
+
+        const users = [
+            {
+                "id": 1,
+                "name": "Leanne Graham",
+                "username": "Bret",
+                "email": "Sincere@april.biz",
+                "address": {
+                    "street": "Kulas Light",
+                    "suite": "Apt. 556",
+                    "city": "Gwenborough",
+                    "zipcode": "92998-3874",
+                    "geo": {
+                        "lat": "-37.3159",
+                        "lng": "81.1496"
+                    }
+                },
+                "phone": "1-770-736-8031 x56442",
+                "website": "hildegard.org",
+                "company": {
+                    "name": "Romaguera-Crona",
+                    "catchPhrase": "Multi-layered client-server neural-net",
+                    "bs": "harness real-time e-markets"
+                }
+            },
+            {
+                "id": 2,
+                "name": "Ervin Howell",
+                "username": "Antonette",
+                "email": "Shanna@melissa.tv",
+                "address": {
+                    "street": "Victor Plains",
+                    "suite": "Suite 879",
+                    "city": "Wisokyburgh",
+                    "zipcode": "90566-7771",
+                    "geo": {
+                        "lat": "-43.9509",
+                        "lng": "-34.4618"
+                    }
+                },
+                "phone": "010-692-6593 x09125",
+                "website": "anastasia.net",
+                "company": {
+                    "name": "Deckow-Crist",
+                    "catchPhrase": "Proactive didactic contingency",
+                    "bs": "synergize scalable supply-chains"
+                }
+            },
+            {
+                "id": 3,
+                "name": "Clementine Bauch",
+                "username": "Samantha",
+                "email": "Nathan@yesenia.net",
+                "address": {
+                    "street": "Douglas Extension",
+                    "suite": "Suite 847",
+                    "city": "McKenziehaven",
+                    "zipcode": "59590-4157",
+                    "geo": {
+                        "lat": "-68.6102",
+                        "lng": "-47.0653"
+                    }
+                },
+                "phone": "1-463-123-4447",
+                "website": "ramiro.info",
+                "company": {
+                    "name": "Romaguera-Jacobson",
+                    "catchPhrase": "Face to face bifurcated interface",
+                    "bs": "e-enable strategic applications"
+                }
+            },
+            {
+                "id": 4,
+                "name": "Patricia Lebsack",
+                "username": "Karianne",
+                "email": "Julianne.OConner@kory.org",
+                "address": {
+                    "street": "Hoeger Mall",
+                    "suite": "Apt. 692",
+                    "city": "South Elvis",
+                    "zipcode": "53919-4257",
+                    "geo": {
+                        "lat": "29.4572",
+                        "lng": "-164.2990"
+                    }
+                },
+                "phone": "493-170-9623 x156",
+                "website": "kale.biz",
+                "company": {
+                    "name": "Robel-Corkery",
+                    "catchPhrase": "Multi-tiered zero tolerance productivity",
+                    "bs": "transition cutting-edge web services"
+                }
+            }
+        ]
+        const app = document.getElementById("app");
+        let htmlTags = '';
+        users.forEach(user => {
+            htmlTags += `
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">${user.name}</h5>
+                    <p class="card-text">${user.phone}</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>`
+        })
+        app.innerHTML = htmlTags;
+    </script>
+</body>
+
+</html>

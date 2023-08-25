@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+function CarD(carNum) {
+  const self=this; // спасаем this и упрощаем себе жизнь
+  
+  self.num=carNum; // публичное свойство - элемент хэша this/self
+
+  self.maxSpeed=160; // публичное свойство - элемент хэша this/self
+
+  let wheels=4; // приватное свойство - локальная переменная
+
+  function getMaxSpeed() { // приватный метод - локальная функция
+    return self.maxSpeed; // и она может обратиться к публичному свойству
+  }
+
+  self.beep=function() { // публичный метод - элемент хэша this/self
+    console.log(
+        'num:'+self.num
+      +' wheels:'+wheels
+      +' maxspeed:'+getMaxSpeed()
+      +' beeeeep!');
+  }
+}
+const car4=new CarD('1-A');
+    </script>
+    
+</body>
+</html>
