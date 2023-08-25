@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function array(string) {
+            let result = "";
+            const newStr = string.split(',')
+            if (newStr.length === 1 || newStr.length === 0 || newStr.length === 2)
+                return null
+
+            for (let i = 0; i < newStr.length; i++) {
+                if (i === 0 || i === newStr.length - 1)
+                    continue
+                else
+                    result += `${newStr[i]} ` 
+            }
+            return result.slice(0, -1).length
+
+        }
+        const str = '1,2,3,4'
+        console.log(array(str))
+    </script>
+
+</body>
+
+</html>

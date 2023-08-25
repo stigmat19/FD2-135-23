@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // "use strict"
+        //es5
+        // function User(name, age){
+        //     this.name = name;
+        //     this.age = age;
+
+        // this.run = function(){}
+        // }
+
+        // const user = new User("Ivan", 25);
+        // const user1 = new User("Petr", 25);
+
+
+        //es6
+        // class User {
+        //     constructor(a, b){
+        //         this.name = a;
+        //         this.age = b;
+        //     }
+
+        //     run = () => {
+        //         console.log(`${this.name} is run`)
+        //     }
+        // }
+
+        // const user = new User("Ivan", 25);
+
+
+        function Man() {
+            this.eyesCount = 2;
+
+            this.showEyes = function () {
+                console.log('this: ' + this);
+                console.log('Eyes: ' + this.eyesCount);
+            }
+        }
+
+        const man = new Man();
+        // man.showEyes();
+
+
+
+        const showEyesFunc = man.showEyes;
+        // showEyesFunc();
+
+        function ff(a, b) {
+            console.log(a + " " + b);
+            console.log(this);
+            // console.log(this.c);
+        }
+
+        ff(3, 4);
+
+    </script>
+
+</body>
+
+</html>

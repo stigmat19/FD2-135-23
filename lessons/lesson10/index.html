@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test1.css">
+    <link rel="stylesheet" href="test2.css">
+    <title>Document</title>
+    <style>
+        .app{
+            width: 50px;
+            height: 50px;
+            transition: 2s;
+        }
+        .app span{
+            color: red;
+        }
+        [type="text"]{
+            border: 3px dashed blue;
+        }
+        .active{
+            width: 100px;
+            height: 100px;
+            background: violet;
+            transform: rotate(45deg);
+        }
+    </style>
+
+</head>
+<body>
+    <input type="text">
+    <div class="app" style="border: 1px solid red;">app</div>
+
+
+    <button onclick="setValue()">click</button>
+    
+    <script>
+        const inp = document.querySelector("[type='text']");
+        const el = document.getElementsByClassName("app");
+        
+        function setValue(){
+            const val = inp.value;
+            el[0].className += " active";
+            el[0].innerHTML = `<span> world</span>`;
+            document.styleSheets[2].rules[0].cssText = `width: 150px;height:150px;transition: 2s;`
+        }
+
+        // const str = "ёлка, подъезд";
+
+        // function change(char){
+        //     const dict = {
+        //         "ё": "е",
+        //         "ъ": "ь",
+        //         " ": "",
+        //         ",": ""
+        //     }
+
+        //     if(dict[char]){
+        //         return dict[char]
+        //     }
+
+        //     return char
+        // }
+
+
+
+    </script>
+
+</body>
+</html>
