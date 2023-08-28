@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" name="brand"> <br>
+    <input type="text" name="model"> <br>
+    <input type="button" value="add" onclick="add()">
+
+    <hr>
+
+    <script>
+        const cars = [];
+
+        const add = () => {
+            const brand = document.querySelector("[name='brand']").value;
+            const model = document.querySelector("[name='model']").value;
+
+            cars.push({
+                brand, model
+            })
+
+            render()
+        }
+
+    </script>
+
+</body>
+</html>
