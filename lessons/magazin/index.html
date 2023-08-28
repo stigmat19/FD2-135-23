@@ -17,7 +17,8 @@
             justify-content: space-between;
             flex-flow: wrap;
         }
-        .card{
+
+        .card {
             margin-bottom: 20px;
         }
     </style>
@@ -31,7 +32,7 @@
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
     <script>
-        
+
 
         const users = [
             {
@@ -128,9 +129,9 @@
             }
         ]
         const app = document.getElementById("app");
-        let htmlTags = '';
-        users.forEach(user => {
-            htmlTags += `
+
+        const html = users.reduce((acc, user) => {
+            return acc += `
             <div class="card" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">${user.name}</h5>
@@ -138,8 +139,11 @@
                     <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>`
-        })
-        app.innerHTML = htmlTags;
+        }, "");
+
+        console.log(html)
+
+        app.innerHTML = html;
     </script>
 </body>
 
