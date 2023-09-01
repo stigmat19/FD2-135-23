@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+  let stringy = "";
+        function change(char) {
+            const dict = {
+                "ё": "е",
+                "ъ": "ь",
+                " ": "",
+                ",": "",
+                ".": "",
+                "!": "",
+                ":": "",
+                ";": "",
+                "'": "",
+                "-": "",
+                "(": "",
+                ")": ""
+            };
+
+            if (char in dict) {
+                return dict[char];
+            }
+            return char
+        }
+
+        const string = "ёлка, подъезд";
+        const splited = string.split("");
+
+        for (let x of splited) {
+            stringy += change(x)
+        }
+        console.log(stringy)
+
+
+
+        function recursionPalindrom(str) {
+            let a;
+            if (str[0] === (str[str.length - 1])) {
+                a = str.slice(1, -1);
+            } else { return console.log("It`s not palindrom") };
+
+            if (str.length > 1) {
+                return recursionPalindrom(a);
+            } else {
+                console.log("It is palindrom")
+            }
+
+        }
+
+        recursionPalindrom("radar")
+
+    </script>
+</body>
+</html>
