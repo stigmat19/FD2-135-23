@@ -1,0 +1,37 @@
+<div id='IYellow' style='background: yellow; padding: 50px'>
+    <div style='background: red; width: 100px; height: 100px'></div>
+    <br /><br />
+    <div style='background: red; width: 100px; height: 100px' id='IRed'></div>
+</div>
+
+<script>
+
+    const yellowElem=document.getElementById('IYellow');
+    yellowElem.addEventListener('mouseenter',yellowMouseEnter,false);
+    yellowElem.addEventListener('mouseleave',yellowMouseLeave,false);
+
+    const redElem=document.getElementById('IRed');
+    redElem.addEventListener('mouseenter',redMouseEnter,false);
+    redElem.addEventListener('mouseleave',redMouseLeave,false);
+
+    function yellowMouseEnter(eo) {
+        eo=eo||window.event;
+        console.log(eo);
+    }
+
+    function yellowMouseLeave(eo) {
+        eo=eo||window.event;
+        console.log(eo);
+    }
+
+    function redMouseEnter(eo) {
+        eo=eo||window.event;
+        console.warn(eo);
+    }
+
+    function redMouseLeave(eo) {
+        eo=eo||window.event;
+        console.warn(eo);
+    }
+
+</script>
