@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type='text' id='fld'>
+    <script>
+        "use strict";
+
+        const fldElem = document.getElementById('fld')
+        fldElem.addEventListener("input", inputKey);
+
+        function inputKey(eo) {
+            eo = eo || window.event;
+            const pressedChar = getKeyboardChar(eo);
+            if (pressedChar == 'z')
+                eo.preventDefault();
+            console.log('input ' + pressedChar);
+        }
+
+        function getKeyboardChar(eo) {
+            if (eo.which == null) {  // IE
+                if (eo.keyCode < 32) return null; // управляющая клавиша
+                return String.fromCharCode(eo.keyCode); // печатный символ
+            }
+            if (eo.which != 0 && eo.charCode != 0) {   // остальные браузеры
+                if (eo.which < 32) return null; // управляющая клавиша
+                return String.fromCharCode(eo.which); // печатный символ
+            }
+            return null; // управляющая клавиша
+        }
+
+    </script>
+</body>
+
+</html>

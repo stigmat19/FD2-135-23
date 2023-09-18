@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img id='Butt1'><br />
+<img id='Butt2'><br />
+<img id='Butt3'>
+
+
+<script>
+
+    class Button {
+
+        constructor(elemId) {
+
+            this.normalFN='Examples/butt_n.gif';
+            this.hoverFN='Examples/butt_h.gif';
+            this.pressedFN='Examples/butt_p.gif';
+
+            // запоминаем, с каким IMG будем работать
+            this.elem=document.getElementById(elemId);
+
+            this.elem.onmouseover=()=>{ this.buttHover() };
+            this.elem.onmousedown=()=>{ this.buttPressed() };
+            this.elem.onmouseup=this.elem.onmouseover;
+            this.elem.onmouseout=()=>{ this.buttNormal() };
+
+            this.buttNormal(); // переключаем кнопку в стартовое состояние - обычное
+        }
+
+
+        buttNormal() {
+            this.elem.src=this.normalFN;
+        }
+
+        buttHover() {
+            console.log( this );
+            this.elem.src=this.hoverFN;
+        }
+
+        buttPressed() {
+            this.elem.src=this.pressedFN;
+        }
+
+    }
+
+    const butt1=new Button('Butt1');
+    const butt2=new Button('Butt2');
+    const butt3=new Button('Butt3');
+
+</script>
+    
+</body>
+</html>

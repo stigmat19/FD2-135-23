@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        .SModalGlass {
+            background-color: rgba(0,0,0,0.5);
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 0%;
+            height: 100%;
+            transition: 0.5s;
+            overflow: hidden;
+        }
+    
+        .SModalWindow {
+            padding: 0 20px 20px 20px;
+            background-color: lightgray;
+            width: 300px;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+    
+    </style>
+</head>
+<body>
+    
+    
+    <div id='IMyModal' class='SModalGlass' >
+        <div class='SModalWindow'>
+            <h1 style='text-align: center'>СТИХИ</h1>
+            <p>Однажды в студёную зимнюю пору я из лесу вышел был сильный мороз</p>
+            <input type=button value='согласен' onclick='closeModal()'>
+        </div>
+    </div>
+    
+    <input type=button value='открыть модальное окно' onclick='openModal()'>
+    
+    <script>
+    
+    function openModal() {
+        document.getElementById('IMyModal').style.width='100%';
+    }
+    
+    function closeModal() {
+        document.getElementById('IMyModal').style.width='0%';
+    }
+    
+   
+    </script>
+    
+</body>
+</html>

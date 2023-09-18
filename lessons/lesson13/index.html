@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #app {
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            animation: anim 3s infinite;
+        }
+
+        @keyframes anim {
+            from {
+                background-color: red;
+                margin-left: 500px;
+            }
+
+            to {
+                background-color: blue
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <input type="range" id="inp">
+    <div id="app"></div>
+    http://fe.it-academy.by/Examples/SPAnavigation.html
+    http://fe.it-academy.by/Examples/SPAnavigation2.html#Photo_1
+    http://fe.it-academy.by/Examples/SPAnavigation2.html#Photo_2
+    https://ab.onliner.by/bmw/x5/g05?year%5Bfrom%5D=2020&year%5Bto%5D=2023&price%5Bfrom%5D=10000&price%5Bto%5D=1000000&price%5Bcurrency%5D=USD&body_type%5B0%5D=suv
+    <script>
+
+        // const inp = document.querySelector('#inp');
+        // const app = document.querySelector('#app');
+
+        // inp.addEventListener('input', (e) => {
+        //      console.log(e.target.value);
+        //      app.innerHTML = e.target.value
+        // });
+
+        // window.addEventListener('copy', () => {
+        //     console.log('------copy')
+        // })
+        // window.addEventListener('paste', () => {
+        //     console.log('------paste')
+        // })
+        // window.addEventListener('resize', (e) => {
+        //     console.log('------e', e.currentTarget.innerWidth)
+        // })
+
+        document.addEventListener("keyup", function (event) {
+            console.log(event.keyCode)
+        });
+    </script>
+
+</body>
+
+</html>
