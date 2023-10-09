@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <style>
+    .test{
+            color: red;
+        }
+   </style>
+</head>
+<body>
+   
+<h2>ОДНОСТРАНИЧНОЕ ПРИЛОЖЕНИЕ</h2>
+
+<div id='IPage'></div>
+
+<script>
+
+  "use strict";
+
+ 
+  window.onhashchange=switchToStateFromURLHash;
+  
+  var SPAState={};
+  
+  var photos={
+    1 : { image:"Hilu3.jpg", comment:"собака Шарик" },
+    2 : { image:"Retriever3.jpg", comment:"собака Барбос" }
+  };
+
+  function switchToStateFromURLHash() {
+    var URLHash=window.location.hash;
+    
+    var stateStr=URLHash.substr(1);
+
+    if ( stateStr!="" ) { 
+      var parts=stateStr.split("_")
+      SPAState={ pagename: parts[0] };
+      if ( SPAState.pagename=='Photo' )
+        SPAState.photoid=parts[1];
+    }
+    else
+      SPAState={pagename:'Main'}; // иначе показываем главную страницу
+
+    console.log('Новое состояние приложения:');
+    console.log(SPAState);
+    
+    var pageHTML="";
+    switch ( SPAState.pagename ) {
+      case 'Main':
+        pageHTML+="<h3>Главная страница</h3>";
+        pageHTML+="<p>Щёлкайте по кнопкам!</p>";
+        break;
+      case 'Photo':
+        var photo=photos[SPAState.photoid];
+        pageHTML+="<h3 class='test'>Фото</h3>";
+        pageHTML+="<img src='"+photo.image+"'>";
+        pageHTML+="<p><i>"+photo.comment+"</i></p>";
+        break;
+      case 'About':
+        pageHTML+="<h3>О нас</h3>";
+        pageHTML+="<p>Мы круты!</p>";
+        break;
+    }
+    document.getElementById('IPage').innerHTML=pageHTML;
+
+  }
+
+  function switchToState(newState) {
+    var stateStr=newState.pagename;
+    if ( newState.pagename=='Photo' )
+      stateStr+="_"+newState.photoid;
+    location.hash=stateStr;
+  }
+
+  function switchToMainPage() {
+    switchToState( { pagename:'Main' } );
+  }
+
+  function switchToPhotoPage(photoId) {
+    switchToState( { pagename:'Photo', photoid:photoId } );
+  }
+
+  function switchToAboutPage() {
+    switchToState( { pagename:'About' } );
+  }
+  switchToStateFromURLHash();
+
+</script>
+
+<br>
+<input type=button value='Главная' onclick='switchToMainPage()'>
+<span id='IPhotosButtons'></span>
+<script>
+  var photosStr="";
+  for ( var photoId in photos ) {
+    var photo=photos[photoId];
+    photosStr+='<input type=button value="'+photo.comment+'" onclick="switchToPhotoPage('+photoId+')"> ';
+  }
+  document.getElementById('IPhotosButtons').innerHTML=photosStr;
+</script>
+<input type=button value='О нас' onclick='switchToAboutPage()'>
+
+
+</body>
+</html>

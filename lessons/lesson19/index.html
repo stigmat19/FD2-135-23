@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    	
+Разработка веб-приложений на JavaScript
+Тема G. Canvas. Анимация
+G.65 Производительность CSS-анимаций
+предыдущий слайд   слайд 30 из 30   следующий слайд
+   
+ 
+ 
+
+<style>
+
+    #CONTAINER
+    {
+        position: relative;
+        background-image:
+            url("http://fe.it-academy.by/Examples/Beatles_big.jpg");
+        width: 390px;
+        height: 550px;
+    }
+
+    #BALL
+    {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        width: 200px;
+        height: 200px;
+        background-color: green;
+        transform: translateZ(0);
+        transition-duration: 3s;
+        transition-timing-function: linear;
+    }
+
+</style>
+
+<input type=button value='вправо'
+    onclick='setLeft(350)'>
+<input type=button value='влево'
+    onclick='setLeft(50)'>
+<input type=button value='вниз'
+    onclick='setTop(300)'>
+<input type=button value='вверх'
+    onclick='setTop(50)'><br/>
+<input type=button value='красный'
+    onclick='setColor("red")'>
+<input type=button value='зелёный'
+    onclick='setColor("green")'><br/>
+<input type=button value='по часовой'
+    onclick='setRotate("720deg")'>
+<input type=button value='против часовой'
+    onclick='setRotate("0deg")'>
+
+<br /><br />
+<div id=CONTAINER>
+    <div id=BALL></div>
+</div>
+
+<script>
+
+    const ballElem=
+        document.getElementById('BALL');
+
+    function setLeft(newX) {
+        ballElem.style.transform=`translateX(${newX}px)`;
+    }
+
+    function setTop(newY) {
+        ballElem.style.top=newY+"px";
+    }
+
+    function setColor(newColor) {
+        ballElem.style.backgroundColor=
+            newColor;
+    }
+
+    function setRotate(newAngle) {
+        ballElem.style.transform=
+            'rotate('+newAngle+')';
+    }
+
+</script>
+</body>
+</html>

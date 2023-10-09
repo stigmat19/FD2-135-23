@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <a href="catalog.html">catalog</a> <br>
+    
+    <input type="text" name="firstname"> <br>
+    <input type="text" name="lastname"> <br>
+    
+    <input type="button" value="save">
+
+    <script>
+        const saveBtn = document.querySelector("[value='save']") ;
+        saveBtn.addEventListener('click', () => {
+            const firstname = document.querySelector("[name='firstname']").value ;
+            const lastname = document.querySelector("[name='lastname']").value ;
+
+            if(localStorage.personsData){
+                const localPersonsData = JSON.parse(localStorage.personsData);
+               
+                localPersonsData.push({
+                    firstname, lastname
+                });
+
+                localStorage['personsData'] = JSON.stringify(localPersonsData);
+            } else{
+                const personsDataArr = [];
+                personsDataArr.push({
+                    firstname, lastname
+                })
+
+                localStorage['personsData'] = JSON.stringify(personsDataArr);
+            }
+        })
+
+    </script>
+
+</body>
+</html>
