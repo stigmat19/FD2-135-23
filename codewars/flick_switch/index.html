@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // ['codewars', 'flick', 'code', 'wars'] ➞ [True, False, False, False]
+        const arr = ['codewars', 'flick', 'code', 'wars'];
+        const arr1 = ['flick', 'chocolate', 'adventure', 'sunshine'];
+        const arr2 = ['bicycle', 'jarmony', 'flick', 'sheep', 'flick'];
+
+        console.log(flick(arr));
+        console.log(flick(arr1));
+        console.log(flick(arr2));
+
+
+        function flick(array){
+            let bool = true;
+            const result = array.map(item => {
+                if(item === 'flick'){
+                    bool = !bool;
+                    return bool
+                }
+
+                return bool;
+            })
+
+            return result;
+        }
+
+        
+
+
+
+    </script>
+</body>
+</html>
