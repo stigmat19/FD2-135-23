@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="text" name="firstname"> <br>
+    <input type="text" name="score"> <br>
+    <button id="saveBtn">save</button>
+
+
+    <script src="https://fe.it-academy.by/JQ/jquery.js"></script>
+
+    <script>
+        const firstname = document.querySelector('[name=firstname]');
+        const score = document.querySelector('[name=score]');
+        const saveBtn = document.getElementById('saveBtn');
+
+        const ajaxHandlerScript = "https://fe.it-academy.by/AjaxStringStorage2.php";
+        let updatePassword;
+        const stringName = 'Ivanov_Ivan';
+
+        let users = [];
+
+        saveBtn.addEventListener('click', () => {
+            restoreInfo();    
+
+            save();
+        })
+
+        function save() {
+            updatePassword = Math.random();
+            $.ajax({
+                url: ajaxHandlerScript, type: 'POST', cache: false, dataType: 'json',
+                data: { f: 'LOCKGET', n: stringName, p: updatePassword },
+                success: lockGetReady, error: errorHandler
+            });
+        }
+
+        function lockGetReady(callresult) {
+            if (callresult.error != undefined)
+                alert(callresult.error);
+            else {
+                $.ajax({
+                    url: ajaxHandlerScript, type: 'POST', cache: false, dataType: 'json',
+                    data: {
+                        f: 'UPDATE', n: stringName,
+                        v: JSON.stringify(users), p: updatePassword
+                    },
+                    success: updateReady, error: errorHandler
+                });
+            }
+        }
+        
+        function errorHandler(jqXHR, statusStr, errorStr) {
+            alert(statusStr + ' ' + errorStr);
+        }
+
+        function updateReady(callresult) {
+            if (callresult.error != undefined)
+                alert(callresult.error);
+        }
+
+        function restoreInfo() {
+            $.ajax(
+                {
+                    url: ajaxHandlerScript, type: 'POST', cache: false, dataType: 'json',
+                    data: { f: 'READ', n: stringName },
+                    success: readReady, error: errorHandler
+                }
+            );
+        }
+
+        function readReady(callresult) {
+            if (callresult.error != undefined)
+                alert(callresult.error);
+            else if (callresult.result != "") {
+                users = JSON.parse(callresult.result);
+                users.push({
+                    firstname: firstname.value,
+                    score: score.value
+                })
+            }
+        }
+    </script>
+
+</body>
+
+</html>
